@@ -2,7 +2,82 @@
 layout: post
 title:  "git"
 date:   2016-08-02 14:47:58 +0800
-categories: git svn
+categories: git
 ---
 
-to be continued
+## git
+
+1. 分布式
+
+对立面： 集中式管理系统，没次都必须取得最新版本再进行工作？？ －－不懂
+分布式：每个人的电脑中都有完整的版本库， 分支管理
+
+2. 创建仓库
+git init 其中的.git目录就是用来追踪文件变化的（跟踪了哪些文件，有哪些变化，文本文件，二进制文件，怎样取消已经追踪的变化）
+
+3. 常用git命令
+git add, git commit -m "add xxx file"
+
+git status
+
+git diff xxx.txt
+
+git log --graph: commit id
+
+git checkout --file， 有没有被放入暂存区域, 版本库中的文件替换工作区的版本
+git checkout
+
+git push -u
+
+
+4. 远程仓库和本地仓库
+本地仓库： 工作区，版本库（.git）＝> 暂存区（stage）
+git管理的是修改， 而不是文件
+
+本地关联远程 git remote add origin
+远程克隆到本地 git clone xxxx
+
+5. git中的版本
+HEAD
+HEAD^
+HEAD-100
+
+6. 退回以前的版本
+git reset --hard HEAD or git reaset --hard [7位版本号]
+git-extras: git undo
+
+7. 删除文件
+需不需要git rm
+
+8.前进到之前的版本
+git reflog: 查看命令历史
+
+9.分支的作用？？
+创建分支， 合并分支（merge rebase）
+解决冲突，不同分支内容的标记
+<<<<<<<<<<<HEAD
+===========
+>>>>>>>>>>>Branch1
+
+10.stash
+git stash
+git stash list
+git stash pop / git stash apply
+
+11. 标签
+
+12. 自定义git
+.gitignore
+别名，配置文件放在了.git/config文件夹中
+
+规范
+bug分支（issue命名），feature分支（feature命名）
+
+手动实践
+github 创建repo
+创建ssh key
+ssh-keygen -t rsa -C ""
+xxxxxx
+
+
+
