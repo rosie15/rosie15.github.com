@@ -46,9 +46,9 @@ A，B虽然比较少出错，但是总有时候两个人同时以不同的方式
 大家应该都用过github的免费仓库管理吧（没有的话，请点击[这里](http://github.com)，按照官网指示注册帐号，创建repository），github上的仓库（repository）其实就可以看作是一个远程仓库。
 
 接下来通过
-~~~git
+```
 git clone http://github.com/[your_user_name]/[your_repository_name]
-~~~
+```
 你就可以将这个远程仓库克隆到你本地的机器上，这个克隆下来的文件夹可以看作是一个本地仓库
 
 ### 本地仓库 => 远程仓库
@@ -56,22 +56,22 @@ git clone http://github.com/[your_user_name]/[your_repository_name]
 反过来，从本地仓库到远程仓库怎么办呢？莫方
 
 1. 检查你本地机器中是否安装的git，如果没有记错的话，OSX自带git，ubuntu可通过一下代码安装
-~~~
+```
 sudo apt-install git
-~~~
+```
 
 windows系统请自行百度安装
 
 2. 安装好了git以后，从命令刚进入目标文件夹，执行
-~~~
+```
 git init
-~~~
+```
 这样就生成了一个本地仓库
 
 再输入
-~~~
+```
 git remote add origin [your_github_repository_address]
-~~~
+```
 就将本地仓库同步到了远程仓库
 
 说到这里，希望大家对远程仓库和本地仓库至少已经有了一个比较直观的感受吧。
@@ -79,73 +79,79 @@ git remote add origin [your_github_repository_address]
 
 ## 常用git命令
 
-这一节
-萝卜青菜，各有所爱！有的人喜欢用图形化界面（atom，eclipse），有的人（笔者）喜欢用命令行
-git add, git commit -m "add xxx file"
+萝卜青菜，各有所爱！有的人喜欢用图形化界面（atom，eclipse），有的人喜欢用命令行。我个人还是比较偏向命令行。
 
-git status
+接下来，就为大家介绍一下常用的git命令。真的是常用，我在开始使用git后的很长一段时间里真的就只用了这几个命令（掩面）。它们分别是：
 
-git diff xxx.txt
+1. git add [file_your_want_to_commit]
 
-git log --graph: commit id
+2. git commit -m "your_commit_message"
 
-git checkout --file， 有没有被放入暂存区域, 版本库中的文件替换工作区的版本
-git checkout
+3. git pull
 
-git push -u
+4. git merge
+
+5. git push
+
+6. git checkout
 
 
 ## 一些基本的原理
 
-其中的.git目录就是用来追踪文件变化的（跟踪了哪些文件，有哪些变化，文本文件，二进制文件，怎样取消已经追踪的变化）
+如果你是上文中所说的A或者B，那么你只会这些常用命令可能也就足够了。可是是个人就会犯错，相比于避免犯错，发现错误，找到解决错误的方法才是王道，这也是git的精髓所在。
+
+在了解git其他的命令之前，我们先来看一看git的一些基本原理（上文中add到底add到了哪里，commit到了哪里？）
+
+细心的同学可能已经发现了，在你本地仓库的文件夹下，有一个隐藏的.git目录，这个目录就是用来追踪文件变化的（跟踪了哪些文件，有哪些变化，文本文件，二进制文件，怎样取消已经追踪的变化）
 
 本地仓库： 工作区，版本库（.git）＝> 暂存区（stage）
 git管理的是修改， 而不是文件
 
-本地关联远程 git remote add origin
-远程克隆到本地 git clone xxxx
 
-5. git中的版本
+## 常用的git命令
+
+### 手一抖系列错误
 HEAD
 HEAD^
 HEAD-100
 
-6. 退回以前的版本
-git reset --hard HEAD or git reaset --hard [7位版本号]
+git checkout --file， 有没有被放入暂存区域, 版本库中的文件替换工作区的版本
 git-extras: git undo
 
-7. 删除文件
-需不需要git rm
+### 老板傻逼系列
+退回以前的版本
+git reset --hard HEAD or git reaset --hard [7位版本号]
 
-8.前进到之前的版本
+前进到之前的版本
 git reflog: 查看命令历史
 
-9.分支的作用？？
+### 同事傻逼系列
+需不需要git rm
+
+### 解决冲突系列
 创建分支， 合并分支（merge rebase）
 解决冲突，不同分支内容的标记
 <<<<<<<<<<<HEAD
 ===========
 >>>>>>>>>>>Branch1
 
-10.stash
+### 产品傻逼系列
 git stash
 git stash list
 git stash pop / git stash apply
 
-11. 标签
 
-12. 自定义git
+## rebase和merge
+
+
+## 标签
+
+## 自定义git
 .gitignore
 别名，配置文件放在了.git/config文件夹中
 
-规范
+## 规范
 bug分支（issue命名），feature分支（feature命名）
-
-手动实践
-github 创建repo
-创建ssh key
-ssh-keygen -t rsa -C ""
-xxxxxx
 
 
 
